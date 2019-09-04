@@ -30,7 +30,7 @@ describe('code/complete', () => {
     expect(Codes.badRequest.invalidCuit.someOtherProperty).toBe('Other');
 
     expect(Codes.badRequest.invalidId.code).toBe('badRequest.invalidId');
-    expect(Codes.badRequest.invalidId.message).toBe('badRequest.invalidId');
+    expect(Codes.badRequest.invalidId.message).toBe('Bad request. Invalid id.');
   });
 
   test('No base. .is() works with empty values.', () => {

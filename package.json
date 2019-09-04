@@ -1,6 +1,6 @@
 {
   "name": "@yucom/common",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Definiciones comunes y utilidades",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -26,6 +26,7 @@
   "homepage": "https://github.com/zorzal2/typescript-empty-app#readme",
   "dependencies": {
     "deep-extend": "^0.6.0",
+    "to-space-case": "^1.0.0",
     "traverse": "^0.6.6"
   },
   "devDependencies": {

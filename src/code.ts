@@ -1,6 +1,7 @@
 import traverse from 'traverse';
 import deepExtend from 'deep-extend';
 import { AppError } from './error';
+import toSpaces from 'to-space-case';
 
 type Uncompleted = {
   [key in string]: Uncompleted | string;
@@ -35,6 +36,9 @@ type Completed<T> = ErrorInfo &
     new: typeof New;
   };
 
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+const messageFromCode = (code: string) => code.split(/\s*\.\s*/).map(term => capitalize(toSpaces(term))).join('. ') + '.';
+
 export function complete<T extends Uncompleted>(codeObject: T): Completed<T>;
 export function complete<T extends Uncompleted, B extends Uncompleted>(base: T, codeObject: B): Completed<T> & Completed<B>;
 export function complete<T extends Uncompleted, B extends Uncompleted>(o1: T, o2?: B): Completed<T & B> {
@@ -43,7 +47,7 @@ export function complete<T extends Uncompleted, B extends Uncompleted>(o1: T, o2
     if (value && typeof (value) === 'object' && this.path.length > 0) {
       const code = this.path.join('.');
       const node = {
-        message: code, // Code is used as default message
+        message: messageFromCode(code), // Build a default message
         ...value,
         code,
         is: Is,
