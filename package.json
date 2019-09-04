@@ -1,0 +1,41 @@
+{
+  "name": "@yucom/common",
+  "version": "0.3.0",
+  "description": "Definiciones comunes y utilidades",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "test": "jest",
+    "tsc": "tsc",
+    "watch-ts": "tsc -w",
+    "build": "npm run tslint && tsc",
+    "prepublishOnly": "npm run-script build",
+    "start": "node dist/index.js",
+    "launch": "npm run build && npm start",
+    "tslint": "tslint -c tslint.json -p tsconfig.json 'src/**/*.ts'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zorzal2/node-common.git"
+  },
+  "author": "llobeto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zorzal2/typescript-empty-app/issues"
+  },
+  "homepage": "https://github.com/zorzal2/typescript-empty-app#readme",
+  "dependencies": {
+    "deep-extend": "^0.6.0",
+    "traverse": "^0.6.6"
+  },
+  "devDependencies": {
+    "@types/deep-extend": "^0.4.31",
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
+    "@types/traverse": "^0.6.32",
+    "jest": "^24.9.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.19.0",
+    "typescript": "^3.6.2"
+  }
+}
