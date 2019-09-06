@@ -36,12 +36,17 @@ type Completed<T> = ErrorInfo &
     new: typeof New;
   };
 
+type CompletedRoot<T> = {
+    [key in keyof T]: Completed<T[key]>
+  };
+
+
 const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
 const messageFromCode = (code: string) => code.split(/\s*\.\s*/).map(term => capitalize(toSpaces(term))).join('. ') + '.';
 
-export function complete<T extends Uncompleted>(codeObject: T): Completed<T>;
-export function complete<T extends Uncompleted, B extends Uncompleted>(base: T, codeObject: B): Completed<T> & Completed<B>;
-export function complete<T extends Uncompleted, B extends Uncompleted>(o1: T, o2?: B): Completed<T & B> {
+export function complete<T extends Uncompleted>(codeObject: T): CompletedRoot<T>;
+export function complete<T extends Uncompleted, B extends Uncompleted>(base: T, codeObject: B): CompletedRoot<T> & CompletedRoot<B>;
+export function complete<T extends Uncompleted, B extends Uncompleted>(o1: T, o2?: B): CompletedRoot<T & B> {
   const target = deepExtend({}, o1, o2);
   traverse(target).forEach(function (value) {
     if (value && typeof (value) === 'object' && this.path.length > 0) {
@@ -56,5 +61,5 @@ export function complete<T extends Uncompleted, B extends Uncompleted>(o1: T, o2
       this.update(node);
     }
   });
-  return <Completed<T & B>><unknown> target;
+  return <CompletedRoot<T & B>><unknown> target;
 }
