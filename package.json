@@ -1,6 +1,6 @@
 {
   "name": "@yucom/common",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Definiciones comunes y utilidades",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
