@@ -1,8 +1,8 @@
-# node-common
+# Common
 
 Utilidades comunes para proyectos en node.
 
-## ZorzalError
+## AppError
 
 Es una subclase de `Error` que agrega las propiedades:
 * `code`: un código de error para identificar el tipo de exacto de error.

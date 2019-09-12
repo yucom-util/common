@@ -16,14 +16,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/zorzal2/node-common.git"
+    "url": "git+https://github.com/yucom-util/common.git"
   },
   "author": "llobeto",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/zorzal2/typescript-empty-app/issues"
+    "url": "https://github.com/yucom-util/common/issues"
   },
-  "homepage": "https://github.com/zorzal2/typescript-empty-app#readme",
+  "homepage": "https://github.com/yucom-util/common#readme",
   "dependencies": {
     "deep-extend": "^0.6.0",
     "to-space-case": "^1.0.0",
